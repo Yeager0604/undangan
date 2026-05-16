@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan — Muhamad Abduloh &amp; Iis Trisnawati</title>
+  <meta property="og:title"       content="Undangan Pernikahan — Muhamad Abduloh & Iis Trisnawati">
+  <meta property="og:description" content="Kami mengundang Anda untuk hadir di hari bahagia kami, 03 Juni 2026.">
+  <meta property="og:type"        content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .couple-img-wrap {
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto 8px;
+      position: relative;
+    }
+    .couple-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 12px 32px rgba(0,0,0,0.35));
+      transition: transform .5s ease;
+    }
+    .couple-img-wrap:hover img {
+      transform: translateY(-6px) scale(1.012);
+    }
+    /* Dekorasi bunga sudut di sekitar karakter */
+    .couple-img-wrap::before,
+    .couple-img-wrap::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      opacity: 0.55;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='18' fill='%23C8956C'/%3E%3Ccircle cx='40' cy='40' r='10' fill='%23D4A84B'/%3E%3Ccircle cx='40' cy='40' r='5' fill='%23E0C080'/%3E%3Ccircle cx='18' cy='26' r='10' fill='%23C8956C' opacity='.75'/%3E%3Ccircle cx='62' cy='26' r='8' fill='%23D4A84B' opacity='.7'/%3E%3Ccircle cx='14' cy='52' r='7' fill='%23C8956C' opacity='.6'/%3E%3Ccircle cx='65' cy='55' r='9' fill='%23D4A84B' opacity='.65'/%3E%3Cpath d='M5 75 Q20 50 40 45' stroke='%238B9A60' stroke-width='2' fill='none' stroke-linecap='round' opacity='.7'/%3E%3Cpath d='M75 75 Q60 50 40 45' stroke='%238B9A60' stroke-width='2' fill='none' stroke-linecap='round' opacity='.7'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .couple-img-wrap::before {
+      top: -20px;
+      left: -20px;
+      transform: rotate(-20deg);
+    }
+    .couple-img-wrap::after {
+      top: -20px;
+      right: -20px;
+      transform: rotate(20deg) scaleX(-1);
+    }
+  </style>
+</head>
+<body>
+
+<audio id="bgMusic" loop preload="auto">
+  <source src="Rey Mbayang Di Sepertiga Malam.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" aria-label="Toggle musik">
+  <i class="fas fa-compact-disc"></i>
+</button>
+
+<!-- COVER -->
+<div id="cover">
+  <div class="cover-frame">
+    <p class="font-cormo text-xs tracking-[5px] uppercase mb-1" style="color:var(--gold)">The Wedding Of</p>
+    <div class="orn"><span class="orn-l"></span><span class="orn-d"></span><span class="orn-l"></span></div>
+    <h1 class="font-vibes text-4xl md:text-5xl leading-tight" style="color:var(--ivory)">Muhamad Abduloh</h1>
+    <p class="font-cormo text-sm mb-1" style="color:var(--muted)">(Fulloh)</p>
+    <p class="font-vibes text-3xl my-2" style="color:var(--gold)">&amp;</p>
+    <h1 class="font-vibes text-4xl md:text-5xl leading-tight" style="color:var(--ivory)">Iis Trisnawati</h1>
+    <p class="font-cormo text-sm mb-4" style="color:var(--muted)">(Iis)</p>
+    <div class="orn"><span class="orn-l"></span><span class="orn-d"></span><span class="orn-l"></span></div>
+    <p class="font-cormo text-base mb-3" style="color:var(--muted)">03 Juni 2026</p>
+    <p class="tamu-label">Kepada Yth.</p>
+    <p id="coverTamu" class="tamu-name"></p>
+    <button id="openBtn" class="px-8 py-3 rounded-full font-semibold text-sm tracking-wider transition-all duration-300 hover:scale-105 active:scale-95" style="background:var(--gold);color:var(--m1)">
+      <i class="fas fa-envelope-open-text mr-2"></i>Buka Undangan
+    </button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main id="mainContent" style="display:none">
+
+  <div id="heroBanner"></div>
+
+  <!-- HERO -->
+  <section class="min-h-screen flex items-center justify-center relative px-4 py-16 text-center" style="background:linear-gradient(180deg,var(--m1),var(--m2) 50%,var(--m1))">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image:url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M30 0L60 30L30 60L0 30Z%22 fill=%22none%22 stroke=%22%23C8956C%22 stroke-width=%220.5%22/%3E%3C/svg%3E');background-size:60px 60px"></div>
+    <div class="relative z-10 rv">
+      <p class="font-cormo text-sm tracking-[5px] uppercase mb-3" style="color:var(--gold)">Bismillahirrahmanirrahim</p>
+      <p class="text-sm mb-8 max-w-md mx-auto leading-relaxed" style="color:var(--muted)">Assalamu'alaikum Warahmatullahi Wabarakatuh<br>Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.</p>
+      <h1 class="font-vibes text-5xl md:text-7xl leading-tight" style="color:var(--ivory)">Muhamad Abduloh</h1>
+      <p class="font-vibes text-3xl md:text-4xl my-3" style="color:var(--gold)">&amp;</p>
+      <h1 class="font-vibes text-5xl md:text-7xl leading-tight mb-6" style="color:var(--ivory)">Iis Trisnawati</h1>
+      <div class="orn"><span class="orn-l"></span><span class="orn-d"></span><span class="orn-l"></span></div>
+      <p class="font-cormo text-lg" style="color:var(--gold)">Rabu, 03 Juni 2026</p>
+    </div>
+  </section>
+
+  <div class="wave-sep" style="background:var(--m1)"><svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 40V20Q300 0 600 20T1200 20V40Z" fill="var(--m2)"/></svg></div>
+
+  <!-- AYAT QURAN -->
+  <section class="py-20 px-4 text-center" style="background:var(--m2)">
+    <div class="max-w-2xl mx-auto rv">
+      <div class="orn mb-8"><span class="orn-l"></span><span class="orn-d"></span><span class="orn-l"></span></div>
+      <p class="font-cormo text-3xl md:text-4xl leading-relaxed mb-6" style="color:var(--ivory);font-style:italic">"وَالَّذِينَ يَقُولُونَ رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا"</p>
+      <p class="text-sm leading-relaxed mb-4" style="color:var(--cream)">"Dan orang-orang yang berkata: Ya Tuhan kami, anugerahkanlah kepada kami istri-istri dan keturunan kami sebagai penyejuk hati kami, dan jadikanlah kami imam bagi orang-orang yang bertakwa."</p>
+      <p class="font-cormo text-base" style="color:var(--gold)">— QS. Al-Furqan [25] : 74 —</p>
+      <div class="orn mt-8"><span class="orn-l"></span><span class="orn-d"></span><span class="orn-l"></span></div>
+    </div>
+  </section>
+
+  <div class="wave-sep" style="background:var(--m2)"><svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 40V20Q300 40 600 20T1200 20V40Z" fill="var(--m1)"/></svg></div>
+
+  <!-- MEMPELAI -->
+  <section class="py-20 px-4" style="background:var(--m1)">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-vibes text-4xl md:text-5xl text-center mb-2 rv" style="color:var(--ivory)">Mempelai</h2>
+      <div class="orn rv"><span class="orn-l"></span><span class="orn-d"></span><span class="orn-l"></span></div>
+
+      <!-- ILUSTRASI PASANGAN AVATAR -->
+      <div class="couple-img-wrap rv mt-8">
+        <img
+          src="avatar-couple.webp"
+          alt="Ilustrasi pasangan pengantin Muhamad Abduloh dan Iis Trisnawati"
+          width="800"
+          height="800"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
+
+      <!-- INFO MEMPELAI -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-6">
+
+        <!-- WANITA -->
+        <div class="text-center rv" style="transition-delay:.1s">
+          <h3 class="font-vibes text-3xl mb-0" style="color:var(--ivory)">Iis Trisnawati</h3>
+          <p class="font-cormo text-sm mb-1" style="color:var(--muted)">(Iis)</p>
+          <p class="font-cormo text-base mb-3" style="color:var(--gold)">S.Pd</p>
+          <p class="text-sm mb-1" style="color:var(--cream)">Anak ke-3 dari</p>
+          <p class="text-sm" style="color:var(--muted)">Bapak Unang Kustia &amp; Ibu Misyati <span style="font-size:11px;opacity:.7">(Almh.)</span></p>
+        </div>
+
+        <!-- PRIA -->
+        <div class="text-center rv" style="transition-delay:.2s">
+          <h3 class="font-vibes text-3xl mb-0" style="color:var(--ivory)">Muhamad Abduloh</h3>
+          <p class="font-cormo text-sm mb-1" style="color:var(--muted)">(Fulloh)</p>
+          <p class="font-cormo text-base mb-3" style="color:var(--gold)">S.Sos</p>
+          <p class="text-sm mb-1" style="color:var(--cream)">Anak ke-1 dari</p>
+          <p class="text-sm" style="color:var(--muted)">Bapak Aa Ahmad &amp; Ibu Ukoy</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="wave-sep" style="background:var(--m1)"><svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 40V20Q300 0 600 20T1200 20V40Z" fill="var(--m2)"/></svg></div>
+
+  <!-- ACARA -->
+  <section class="py-20 px-4" style="background:var(--m2)">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="font-vibes text-4xl md:text-5xl mb-2 rv" style="color:var(--ivory)">Waktu &amp; Tempat</h2>
+      <div class="orn rv"><span class="orn-l"></span><span class="orn-d"></span><span class="orn-l"></span></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+        <div class="rv p-8 rounded-2xl" style="background:var(--m3);border:1px solid var(--m4);transition-delay:.1s">
+          <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style="background:var(--m2);border:1px solid var(--gold)"><i class="fas fa-quran text-xl" style="color:var(--gold)"></i></div>
+          <h3 class="font-cormo text-2xl font-semibold mb-3" style="color:var(--gold)">Akad Nikah</h3>
+          <p class="text-sm mb-1" style="color:var(--ivory)"><i class="far fa-calendar-alt mr-2" style="color:var(--gold)"></i>Rabu, 03 Juni 2026</p>
+          <p class="text-sm mb-2" style="color:var(--ivory)"><i class="far fa-clock mr-2" style="color:var(--gold)"></i>08.00 — 10.00 WIB</p>
+          <p class="text-sm leading-relaxed" style="color:var(--muted)">Jl. Padat Karya No.250, RT.02/RW.12<br>Cibeber, Kec. Cimahi Sel.<br>Kota Cimahi, Jawa Barat 40531</p>
+        </div>
+        <div class="rv p-8 rounded-2xl" style="background:var(--m3);border:1px solid var(--m4);transition-delay:.2s">
+          <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style="background:var(--m2);border:1px solid var(--gold)"><i class="fas fa-glass-cheers text-xl" style="color:var(--gold)"></i></div>
+          <h3 class="font-cormo text-2xl font-semibold mb-3" style="color:var(--gold)">Resepsi</h3>
+          <p class="text-sm mb-1" style="color:var(--ivory)"><i class="far fa-calendar-alt mr-2" style="color:var(--gold)"></i>Rabu, 03 Juni 2026</p>
+          <p class="text-sm mb-2" style="color:var(--ivory)"><i class="far fa-clock mr-2" style="color:var(--gold)"></i>11.00 — 14.00 WIB</p>
+          <p class="text-sm leading-relaxed" style="color:var(--muted)">Jl. Padat Karya No.250, RT.02/RW.12<br>Cibeber, Kec. Cimahi Sel.<br>Kota Cimahi, Jawa Barat 40531</p>
+        </div>
+      </div>
+
+      <!-- PETA -->
+      <div class="mt-10 rv" style="transition-delay:.3s">
+        <div class="mf">
+          <iframe
+            src="https://maps.google.com/maps?q=Jl.+Padat+Karya+No.250,+RT.02/RW.12,+Cibeber,+Kec.+Cimahi+Sel.,+Kota+Cimahi,+Jawa+Barat+40531&output=embed"
+            width="100%" height="280" style="border:0;display:block" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Lokasi Pernikahan"></iframe>
+        </div>
+        <a href="https://maps.app.goo.gl/GwfU9DDsbNYfJQMH7"
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 mt-4 px-6 py-3 rounded-full text-sm font-semibold transition-all hover:scale-105 active:scale-95"
+           style="background:var(--gold);color:var(--m1)">
+          <i class="fas fa-map-marker-alt"></i> Buka di Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave-sep" style="background:var(--m2)"><svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 40V20Q300 40 600 20T1200 20V40Z" fill="var(--m1)"/></svg></div>
+
+  <!-- COUNTDOWN -->
+  <section class="py-20 px-4 text-center" style="background:var(--m1)">
+    <div class="max-w-xl mx-auto">
+      <h2 class="font-vibes text-4xl md:text-5xl mb-2 rv" style="color:var(--ivory)">Hitung Mundur</h2>
+      <div class="orn rv"><span class="orn-l"></span><span class="orn-d"></span><span class="orn-l"></span></div>
+      <div class="flex justify-center gap-4 mt-8 rv">
+        <div class="cd-b"><div class="cd-n" id="cdD">00</div><div class="cd-l">Hari</div></div>
+        <div class="cd-b"><div class="cd-n" id="cdH">00</div><div class="cd-l">Jam</div></div>
+        <div class="cd-b"><div class="cd-n" id="cdM">00</div><div class="cd-l">Menit</div></div>
+        <div class="cd-b"><div class="cd-n" id="cdS">00</div><div class="cd-l">Detik</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave-sep" style="background:var(--m1)"><svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 40V20Q300 0 600 20T1200 20V40Z" fill="var(--m2)"/></svg></div>
+
+  <!-- UCAPAN -->
+  <section class="py-20 px-4" style="background:var(--m2)">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-vibes text-4xl md:text-5xl text-center mb-2 rv" style="color:var(--ivory)">Ucapan &amp; Doa</h2>
+      <div class="orn rv"><span class="orn-l"></span><span class="orn-d"></span><span class="orn-l"></span></div>
+      <p class="text-center text-sm mb-8 rv" style="color:var(--muted)">Berikan ucapan selamat dan doa terbaik untuk kedua mempelai</p>
+      <form id="guestForm" class="space-y-4 rv" style="transition-delay:.1s">
+        <input type="text" id="gName" class="fi" placeholder="Nama Anda" required aria-label="Nama">
+        <select id="gAttend" class="fi" aria-label="Konfirmasi kehadiran">
+          <option value="">Konfirmasi Kehadiran</option>
+          <option value="hadir">Hadir</option>
+          <option value="tidak">Berhalangan</option>
+          <option value="ragu">Masih Ragu</option>
+        </select>
+        <textarea id="gMsg" class="fi" rows="4" placeholder="Tulis ucapan &amp; doa Anda..." required aria-label="Ucapan"></textarea>
+        <button type="submit" class="w-full py-3 rounded-xl font-semibold text-sm tracking-wider transition-all hover:scale-[1.02] active:scale-95" style="background:var(--gold);color:var(--m1)">
+          <i class="fas fa-paper-plane mr-2"></i>Kirim Ucapan
+        </button>
+      </form>
+      <div class="flex gap-2 mt-10 mb-4 flex-wrap rv" style="transition-delay:.15s">
+        <button class="tab-btn active" data-filter="semua">Semua</button>
+        <button class="tab-btn" data-filter="hadir">Hadir</button>
+        <button class="tab-btn" data-filter="tidak">Berhalangan</button>
+        <button class="tab-btn" data-filter="ragu">Masih Ragu</button>
+        <span id="ucapanCount" class="ucapan-counter ml-auto self-center"></span>
+      </div>
+      <div id="guestList" class="space-y-4"></div>
+    </div>
+  </section>
+
+  <div class="wave-sep" style="background:var(--m2)"><svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 40V20Q300 40 600 20T1200 20V40Z" fill="var(--m1)"/></svg></div>
+
+  <!-- AMPLOP DIGITAL -->
+  <section class="py-20 px-4" style="background:var(--m1)">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="font-vibes text-4xl md:text-5xl mb-2 rv" style="color:var(--ivory)">Amplop Digital</h2>
+      <div class="orn rv"><span class="orn-l"></span><span class="orn-d"></span><span class="orn-l"></span></div>
+      <p class="text-sm mb-8 rv" style="color:var(--muted)">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika memberi adalah ungkapan tanda kasih, Anda dapat melalui:</p>
+      <div class="space-y-4 rv" style="transition-delay:.1s">
+        <div class="gc flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:var(--m3)"><i class="fas fa-wallet" style="color:var(--gold)"></i></div>
+            <div class="text-left">
+              <p class="text-xs" style="color:var(--muted)">Dana</p>
+              <p class="font-semibold text-sm font-mono" style="color:var(--ivory)">0895-3299-00587</p>
+              <p class="text-[10px]" style="color:var(--muted)">a.n. Muhamad Abduloh (Fulloh)</p>
+            </div>
+          </div>
+          <button class="cbtn" onclick="copyText('0895329900587','Dana')"><i class="fas fa-copy mr-1"></i>Salin</button>
+        </div>
+        <div class="gc flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:var(--m3)"><i class="fas fa-university" style="color:var(--gold)"></i></div>
+            <div class="text-left">
+              <p class="text-xs" style="color:var(--muted)">Bank BCA</p>
+              <p class="font-semibold text-sm font-mono" style="color:var(--ivory)">1394341757</p>
+              <p class="text-[10px]" style="color:var(--muted)">a.n. Iis Trisnawati</p>
+            </div>
+          </div>
+          <button class="cbtn" onclick="copyText('1394341757','BCA')"><i class="fas fa-copy mr-1"></i>Salin</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave-sep" style="background:var(--m1)"><svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 40V20Q300 0 600 20T1200 20V40Z" fill="var(--m2)"/></svg></div>
+
+  <!-- PENUTUP -->
+  <section class="py-24 px-4 text-center" style="background:var(--m2)">
+    <div class="max-w-lg mx-auto rv">
+      <p class="font-cormo text-sm tracking-[4px] uppercase mb-6" style="color:var(--gold)">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+      <p class="text-sm leading-relaxed mb-6" style="color:var(--cream)">Merupakan suatu kebahagiaan dan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir memberikan doa restu kepada kami.</p>
+      <div class="orn"><span class="orn-l"></span><span class="orn-d"></span><span class="orn-l"></span></div>
+      <p class="text-sm mb-2" style="color:var(--muted)">Kami yang berbahagia</p>
+      <h3 class="font-vibes text-3xl mb-0" style="color:var(--ivory)">Muhamad Abduloh</h3>
+      <p class="font-cormo text-sm mb-1" style="color:var(--muted)">(Fulloh)</p>
+      <p class="font-vibes text-xl" style="color:var(--gold)">&amp;</p>
+      <h3 class="font-vibes text-3xl mb-0" style="color:var(--ivory)">Iis Trisnawati</h3>
+      <p class="font-cormo text-sm" style="color:var(--muted)">(Iis)</p>
+    </div>
+  </section>
+
+  <footer class="py-6 px-4 text-center" style="background:var(--m2);border-top:1px solid var(--m4)">
+    <p class="text-xs" style="color:var(--muted)">Undangan Pernikahan Digital &mdash; 2026</p>
+  </footer>
+
+</main>
+
+<script src="main.js"></script>
+</body>
+</html>

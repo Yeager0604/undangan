@@ -1,0 +1,126 @@
+/* ============================================================
+   UNDANGAN PERNIKAHAN — Muhamad Abduloh & Iis Trisnawati
+   style.css
+   ============================================================ */
+
+:root {
+  --m1: #1A0F07;
+  --m2: #2D1A0E;
+  --m3: #4A2E1C;
+  --m4: #6B4226;
+  --gold: #C8956C;
+  --gold2: #DBA97E;
+  --cream: #F5E6D3;
+  --ivory: #FFF5EB;
+  --muted: #9C7A5A;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Poppins', sans-serif; background: var(--m1); color: var(--ivory); overflow-x: hidden; }
+
+.font-vibes  { font-family: 'Great Vibes', cursive; }
+.font-cormo  { font-family: 'Cormorant Garamond', serif; }
+
+/* COVER */
+#cover { position: fixed; inset: 0; z-index: 9999; background: var(--m1); display: flex; align-items: center; justify-content: center; transition: opacity 1s ease, visibility 1s ease; }
+#cover.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+.cover-frame { border: 1px solid var(--gold); padding: 44px 28px; position: relative; text-align: center; max-width: 420px; width: 88%; }
+.cover-frame::before, .cover-frame::after { content: ''; position: absolute; width: 36px; height: 36px; border-color: var(--gold); border-style: solid; }
+.cover-frame::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+.cover-frame::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+/* TAMU LABEL */
+.tamu-label { font-size: 12px; color: var(--muted); letter-spacing: 1px; margin-bottom: 4px; }
+.tamu-name  { font-size: 15px; color: var(--gold2); font-family: 'Cormorant Garamond', serif; font-weight: 600; margin-bottom: 12px; display: none; }
+.tamu-name.visible { display: block; }
+
+/* ORNAMENT */
+.orn   { display: flex; align-items: center; gap: 10px; justify-content: center; margin: 20px 0; }
+.orn-l { height: 1px; width: 50px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.orn-d { width: 7px; height: 7px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+
+/* REVEAL */
+.rv      { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.rv.vis  { opacity: 1; transform: translateY(0); }
+
+/* COUPLE FRAME */
+.cp-frame { width: 130px; height: 130px; border-radius: 50%; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; background: radial-gradient(circle, var(--m3) 0%, var(--m2) 100%); position: relative; overflow: hidden; }
+.cp-frame::after { content: ''; position: absolute; inset: -3px; border-radius: 50%; border: 1px solid rgba(200,149,108,.3); animation: cpPulse 3s ease-in-out infinite; }
+@keyframes cpPulse { 0%,100%{transform:scale(1);opacity:.3} 50%{transform:scale(1.05);opacity:.6} }
+
+/* COUNTDOWN */
+.cd-b { background: var(--m2); border: 1px solid var(--m4); border-radius: 12px; padding: 12px 8px; min-width: 68px; text-align: center; }
+.cd-n { font-size: 26px; font-weight: 700; color: var(--gold); line-height: 1; }
+.cd-l { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+/* MUSIC BTN */
+#musicBtn { position: fixed; bottom: 20px; right: 20px; z-index: 8000; width: 46px; height: 46px; border-radius: 50%; background: var(--m3); border: 1px solid var(--gold); color: var(--gold); cursor: pointer; display: none; align-items: center; justify-content: center; font-size: 17px; transition: transform .3s, background .3s; box-shadow: 0 4px 20px rgba(0,0,0,.5); }
+#musicBtn:hover { transform: scale(1.1); background: var(--m4); }
+#musicBtn.on i  { animation: spin 2.5s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* GUEST CARD */
+.gc { background: var(--m2); border: 1px solid var(--m4); border-radius: 12px; padding: 16px; }
+
+/* COPY BTN */
+.cbtn { background: var(--gold); color: var(--m1); border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all .2s; font-family: 'Poppins', sans-serif; }
+.cbtn:hover  { background: var(--gold2); transform: scale(1.03); }
+.cbtn:active { transform: scale(.96); }
+
+/* TOAST */
+.toast { position: fixed; bottom: 76px; left: 50%; transform: translateX(-50%); z-index: 9999; background: var(--gold); color: var(--m1); padding: 10px 22px; border-radius: 10px; font-size: 13px; font-weight: 600; animation: tin .4s ease, tout .4s ease 2.2s forwards; pointer-events: none; white-space: nowrap; }
+@keyframes tin  { from{opacity:0;transform:translateX(-50%) translateY(16px)} to{opacity:1;transform:translateX(-50%) translateY(0)} }
+@keyframes tout { to{opacity:0;transform:translateX(-50%) translateY(-8px)} }
+
+/* FORM */
+.fi { background: var(--m2); border: 1px solid var(--m4); border-radius: 10px; padding: 12px 16px; color: var(--ivory); font-size: 14px; width: 100%; font-family: 'Poppins', sans-serif; transition: border-color .3s; }
+.fi:focus        { outline: none; border-color: var(--gold); }
+.fi::placeholder { color: var(--muted); }
+select.fi { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239C7A5A' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+
+/* MAP */
+.mf { border-radius: 12px; overflow: hidden; border: 1px solid var(--m4); }
+
+/* PETALS */
+.petal { position: fixed; z-index: 7000; pointer-events: none; }
+@keyframes pfall {
+  0%   { transform: translateY(-20px)  rotate(0deg)   translateX(0);    opacity: .55; }
+  25%  { transform: translateY(25vh)   rotate(90deg)  translateX(30px);  opacity: .45; }
+  50%  { transform: translateY(50vh)   rotate(180deg) translateX(-20px); opacity: .35; }
+  75%  { transform: translateY(75vh)   rotate(270deg) translateX(25px);  opacity: .20; }
+  100% { transform: translateY(105vh)  rotate(360deg) translateX(-10px); opacity: 0;   }
+}
+
+/* WAVE */
+.wave-sep { width: 100%; overflow: hidden; line-height: 0; }
+.wave-sep svg { display: block; width: 100%; height: 40px; }
+
+/* BADGE */
+.badge-hadir { color: #5cb85c; font-size: 11px; }
+.badge-tidak { color: #d9534f; font-size: 11px; }
+.badge-ragu  { color: #f0ad4e; font-size: 11px; }
+
+/* TAB */
+.tab-btn { padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; border: 1px solid var(--m4); background: transparent; color: var(--muted); cursor: pointer; font-family: 'Poppins', sans-serif; transition: all .2s; }
+.tab-btn.active, .tab-btn:hover { background: var(--gold); color: var(--m1); border-color: var(--gold); }
+
+/* EMPTY STATE */
+.empty-state { text-align: center; padding: 32px 0; color: var(--muted); font-size: 13px; }
+
+/* UCAPAN COUNTER */
+.ucapan-counter { font-size: 12px; color: var(--muted); text-align: right; }
+
+/* HERO BANNER */
+#heroBanner { display: none; background: var(--m3); border-bottom: 1px solid var(--m4); text-align: center; padding: 10px 16px; font-size: 13px; color: var(--gold2); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .cp-frame { width: 105px; height: 105px; }
+  .cd-b     { min-width: 58px; padding: 10px 6px; }
+  .cd-n     { font-size: 20px; }
+  .cover-frame { padding: 28px 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
